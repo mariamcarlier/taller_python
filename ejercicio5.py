@@ -35,10 +35,10 @@ def realizar_venta():
             cantidad_a_vender = int(input(f"¿Cuántas unidades de '{busqueda}' vas a facturar?: "))
         #if - verifica si el nombre del diccionario actual coincide con lo que el usuario escribió.
 
-            # Validación de stock
+            # VALIDACION DE STOCK 
             if producto["cantidad"] >= cantidad_a_vender:
                 
-                # --- INTEGRACIÓN DE TU LÓGICA DE OCASIÓN ---
+                # --- Seleccion de ocasion de uso/ venta para usuario ---
                 print("\n¿Para qué ocasión es el anillo?")
                 print("1. Compromiso (10% Descuento)")
                 print("2. Regalo (Mensaje especial)")
@@ -48,8 +48,11 @@ def realizar_venta():
                 descuento = 0.10 if ocasion == "1" else 0.0
                 mensaje = "🎁 Incluye empaque y mensaje de regalo." if ocasion == "2" else ""
                 
-                # ACTUALIZACIÓN DE STOCK (Requisito estricto del taller)
+                # ACTUALIZACIÓN DE STOCK 
                 producto["cantidad"] -= cantidad_a_vender
+            #con asignacion de resta que provoca una accion matematica modificando el valor del diccionario, si la cantidad a vender es menor o igual al stock disponible, se procede a la venta, de lo contrario se muestra un mensaje de error.
+            
+            #esta se usò con el operador de asignacion compuesto -= que es una forma abreviada de escribir producto["cantidad"] = producto["cantidad"] - cantidad_a_vender, lo que actualiza el stock del producto restando la cantidad vendida.
                 
                 # Cálculos matemáticos
                 subtotal = producto["precio"] * cantidad_a_vender
@@ -79,7 +82,7 @@ def realizar_venta():
     return False
 
 def mostrar_inventario():
-    """Imprime el estado actual de la bóveda de forma tabular."""
+    #Imprime el estado actual de la bóveda de forma tabular.
     print("\n" + "=" * 55)
     print(f" {'💎 INVENTARIO: JOYERÍA ORO DEL SOL 💎':^53}")
     print("=" * 55)
@@ -99,9 +102,9 @@ def mostrar_inventario():
 # =====================================================================
 
 # Agregamos datos de prueba para que el usuario no tenga que escribir todo de cero
-agregar_producto("Anillo oro amarillo 18k", 450000, 10)
+agregar_producto("Anillo de 18k", 450000, 10)
 agregar_producto("Anillo Compromiso", 930000, 15)
-agregar_producto("Anillo de 15👑", 500000, 5)
+agregar_producto("Anillo de 15", 500000, 5)
 
 def iniciar_sistema():
     """Bucle infinito que controla el flujo principal del programa."""
