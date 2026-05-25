@@ -1,9 +1,9 @@
 # Ejercicio 2: Lista de Compras Interactiva 
 print("Bienvenido a tu lista de compras interactiva!")
 
-# 1. Crear una lista vacia con [] donde se giararan los items de que el usuario agreggue
+# 1. Crear una lista vacia con [] donde se guiararan los items de que el usuario agregue
 lista_compras = []
-# 2. creamos el bucle infinitowhile que mantiene el menu activo
+
 while True:
     print("\nLISTA DE COMPRAS:")
     print("1. Agregar un item")
